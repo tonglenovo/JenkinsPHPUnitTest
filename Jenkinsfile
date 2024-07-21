@@ -1,5 +1,5 @@
 pipeline {
-	agents{
+	agent{
 		docker {
 			image 'composer:latest'
 		}
