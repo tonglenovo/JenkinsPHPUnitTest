@@ -8,6 +8,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				sh 'composer install'
+				sh "unset JAVA_HOME"
 			}
 		}
 		stage('Test') {
