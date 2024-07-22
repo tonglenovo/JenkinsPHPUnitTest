@@ -16,14 +16,8 @@ pipeline {
             }
 		}
 		stage('OWASP') {
-			steps{
-				dependencyCheck additionalArguments: '''
-                   -o './'
-                   -s './'
-                   -f 'ALL'
-				   --noupdate
-                   --prettyPrint''', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
-       			dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+			steps {
+				dependencyCheck additionalArguments: '--format HTML --format XML --noupdate', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
 			}
 		}
 	}
